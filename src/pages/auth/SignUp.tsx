@@ -1,12 +1,12 @@
-import {View} from 'react-native';
 import React, {useRef} from 'react';
-import {Button, Headline, Text} from 'react-native-paper';
-import {Form} from '@unform/mobile';
+import {Headline, Text} from 'react-native-paper';
 import TextInput from '../../components/form/TextInput';
 import {FormHandles} from '@unform/core';
 import Anchor from '../../components/common/Anchor';
 import {useAuth} from '../../contexts/AuthContext';
 import {TextInput as T} from 'react-native-paper';
+import AuthLayout from '../../layouts/AuthLayout';
+import {Form, SubmitButton} from './common';
 
 const SignUp = () => {
   const formRef = useRef<FormHandles>(null);
@@ -18,9 +18,9 @@ const SignUp = () => {
   };
 
   return (
-    <View style={{padding: 25, marginTop: 20}}>
+    <AuthLayout>
       <Headline>Sign Up</Headline>
-      <Form ref={formRef} style={{marginTop: 20}} onSubmit={handleSubmit}>
+      <Form ref={formRef} onSubmit={handleSubmit}>
         <TextInput
           mode="outlined"
           name="name"
@@ -56,16 +56,15 @@ const SignUp = () => {
           já possui uma conta ? <Anchor to="SignIn">clique aqui</Anchor> para
           acessar.
         </Text>
-        <Button
-          style={{marginTop: 20}}
+        <SubmitButton
           mode="contained"
           onPress={() => {
             formRef.current?.submitForm();
           }}>
           Registrar
-        </Button>
+        </SubmitButton>
       </Form>
-    </View>
+    </AuthLayout>
   );
 };
 

@@ -1,12 +1,12 @@
-import {View} from 'react-native';
 import React, {useRef} from 'react';
-import {Button, Headline, Text} from 'react-native-paper';
-import {Form} from '@unform/mobile';
+import {Headline} from 'react-native-paper';
 import TextInput from '../../components/form/TextInput';
 import {TextInput as T} from 'react-native-paper';
 import {FormHandles} from '@unform/core';
 import Anchor from '../../components/common/Anchor';
 import {useAuth} from '../../contexts/AuthContext';
+import AuthLayout from '../../layouts/AuthLayout';
+import {CTAText, Form, SubmitButton} from './common';
 
 const SignIn = () => {
   const {signIn} = useAuth();
@@ -18,9 +18,9 @@ const SignIn = () => {
   };
 
   return (
-    <View style={{padding: 25, marginTop: 20}}>
+    <AuthLayout>
       <Headline>Sign In</Headline>
-      <Form ref={formRef} style={{marginTop: 20}} onSubmit={handleSubmit}>
+      <Form ref={formRef} onSubmit={handleSubmit}>
         <TextInput
           mode="outlined"
           keyboardType="email-address"
@@ -35,20 +35,19 @@ const SignIn = () => {
           left={<T.Icon name="lock" />}
           secureTextEntry={true}
         />
-        <Text style={{marginTop: 10}}>
+        <CTAText>
           ainda não possui uma conta ? <Anchor to="SignUp">clique aqui</Anchor>{' '}
           para criar.
-        </Text>
-        <Button
-          style={{marginTop: 10}}
+        </CTAText>
+        <SubmitButton
           mode="contained"
           onPress={() => {
             formRef.current?.submitForm();
           }}>
           Logar
-        </Button>
+        </SubmitButton>
       </Form>
-    </View>
+    </AuthLayout>
   );
 };
 

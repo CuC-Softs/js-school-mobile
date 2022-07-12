@@ -11,6 +11,7 @@ import {StatusBar} from 'react-native';
 import 'react-native-gesture-handler';
 import FeatherIcon from 'react-native-vector-icons/Feather';
 import {AuthProvider} from './contexts/AuthContext';
+import {ThemeProvider} from 'styled-components';
 
 const combinedTheme = merge(NavigationDefaultTheme, theme);
 
@@ -22,13 +23,15 @@ const App = () => {
         backgroundColor="transparent"
         translucent
       />
-      <PaperProvider
-        settings={{icon: props => <FeatherIcon {...props} />}}
-        theme={combinedTheme}>
-        <NavigationContainer theme={combinedTheme}>
-          <Routes />
-        </NavigationContainer>
-      </PaperProvider>
+      <ThemeProvider theme={theme}>
+        <PaperProvider
+          settings={{icon: props => <FeatherIcon {...props} />}}
+          theme={combinedTheme}>
+          <NavigationContainer theme={combinedTheme}>
+            <Routes />
+          </NavigationContainer>
+        </PaperProvider>
+      </ThemeProvider>
     </AuthProvider>
   );
 };

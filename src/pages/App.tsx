@@ -7,7 +7,7 @@ import {useAuth} from '../contexts/AuthContext';
 const App = () => {
   const {signOut} = useAuth();
   return (
-    <View>
+    <View style={{padding: 25}}>
       <Text>App</Text>
       <Button
         onPress={() => {

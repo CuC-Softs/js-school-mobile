@@ -17,11 +17,21 @@ const SignIn = () => {
   };
 
   return (
-    <View style={{padding: 50}}>
+    <View style={{padding: 25}}>
       <Text>SignIn</Text>
       <Form ref={formRef} style={{marginTop: 20}} onSubmit={handleSubmit}>
-        <TextInput name="email" label="Email" />
-        <TextInput name="password" label="Senha" secureTextEntry={true} />
+        <TextInput
+          mode="outlined"
+          keyboardType="email-address"
+          name="email"
+          label="Email"
+        />
+        <TextInput
+          mode="outlined"
+          name="password"
+          label="Senha"
+          secureTextEntry={true}
+        />
         <Text style={{marginTop: 10}}>
           ainda não possui uma conta ? <Anchor to="SignUp">clique aqui</Anchor>{' '}
           para criar.

@@ -5,6 +5,7 @@ type AuthContextData = {
   user: any;
   signIn(data: any): Promise<void>;
   signOut(): void;
+  signUp(data: any): Promise<void>;
   isSigned: boolean;
 };
 
@@ -29,10 +30,16 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
     setUser(null);
   }, []);
 
+  const signUp = useCallback(async (data: any) => {
+    // const user = await signUpAsync(data);
+    console.log(data);
+    setUser({});
+  }, []);
+
   const isSigned = useMemo(() => !!user, [user]);
 
   return (
-    <AuthContext.Provider value={{user, signIn, signOut, isSigned}}>
+    <AuthContext.Provider value={{user, signIn, signOut, isSigned, signUp}}>
       {children}
     </AuthContext.Provider>
   );

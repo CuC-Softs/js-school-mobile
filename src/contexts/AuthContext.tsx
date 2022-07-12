@@ -1,5 +1,6 @@
 import React from 'react';
 import {createContext, useCallback, useMemo, useState} from 'react';
+import SweetAlert from 'react-native-sweet-alert';
 
 type AuthContextData = {
   user: any;
@@ -19,11 +20,19 @@ interface AuthProviderProps {
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
   const [user, setUser] = useState<any>(null);
-
   const signIn = useCallback(async (data: any) => {
     // const user = await signInAsync();
-    console.log(data);
-    setUser({});
+    SweetAlert.showAlertWithOptions({
+      title: 'OK',
+      subTitle: 'Usuário logado com sucesso',
+      confirmButtonTitle: 'OK',
+      confirmButtonColor: '#000',
+      otherButtonTitle: 'Cancel',
+      otherButtonColor: '#dedede',
+      style: 'success',
+      cancellable: true,
+    });
+    setUser(data);
   }, []);
 
   const signOut = useCallback(() => {
@@ -32,7 +41,16 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
 
   const signUp = useCallback(async (data: any) => {
     // const user = await signUpAsync(data);
-    console.log(data);
+    SweetAlert.showAlertWithOptions({
+      title: 'OK',
+      subTitle: 'Usuário cadastrado com sucesso',
+      confirmButtonTitle: 'OK',
+      confirmButtonColor: '#000',
+      otherButtonTitle: 'Cancel',
+      otherButtonColor: '#dedede',
+      style: 'success',
+      cancellable: true,
+    });
     setUser({});
   }, []);
 

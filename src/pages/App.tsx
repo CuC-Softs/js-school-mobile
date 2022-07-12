@@ -1,12 +1,12 @@
-import {View} from 'react-native';
 import React from 'react';
 import {Button, Headline} from 'react-native-paper';
 import {useAuth} from '../contexts/AuthContext';
+import styled from 'styled-components/native';
 
 const App = () => {
   const {signOut} = useAuth();
   return (
-    <View style={{padding: 25, marginTop: 20}}>
+    <Container>
       <Headline>App</Headline>
       <Button
         onPress={() => {
@@ -14,8 +14,13 @@ const App = () => {
         }}>
         Logout
       </Button>
-    </View>
+    </Container>
   );
 };
+
+const Container = styled.View`
+  padding: 25px;
+  margin-top: 50px;
+`;
 
 export default App;

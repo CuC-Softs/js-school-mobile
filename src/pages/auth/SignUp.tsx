@@ -1,12 +1,12 @@
 import React, {useRef} from 'react';
-import {Headline, Text} from 'react-native-paper';
+import {Headline} from 'react-native-paper';
 import TextInput from '../../components/form/TextInput';
 import {FormHandles} from '@unform/core';
 import Anchor from '../../components/common/Anchor';
 import {useAuth} from '../../contexts/AuthContext';
 import {TextInput as T} from 'react-native-paper';
 import AuthLayout from '../../layouts/AuthLayout';
-import {Form, SubmitButton} from './common';
+import {CTAText, Form, SubmitButton} from './common';
 
 const SignUp = () => {
   const formRef = useRef<FormHandles>(null);
@@ -52,10 +52,10 @@ const SignUp = () => {
           returnKeyType="send"
           secureTextEntry={true}
         />
-        <Text style={{marginTop: 10}}>
+        <CTAText>
           já possui uma conta ? <Anchor to="SignIn">clique aqui</Anchor> para
           acessar.
-        </Text>
+        </CTAText>
         <SubmitButton
           mode="contained"
           onPress={() => {

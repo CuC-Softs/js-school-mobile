@@ -12,6 +12,8 @@
   "dependencies": {
     "@react-navigation/native": "^6.0.11",
     "@react-navigation/native-stack": "^6.7.0",
+    "@unform/core": "^2.1.6",
+    "@unform/mobile": "^2.1.6",
     "react": "18.0.0",
     "react-native": "0.69.1",
     "react-native-gesture-handler": "^2.5.0",

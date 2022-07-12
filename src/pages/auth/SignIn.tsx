@@ -27,6 +27,7 @@ const SignIn = () => {
           name="email"
           left={<T.Icon name="mail" />}
           label="Email"
+          returnKeyType="next"
         />
         <TextInput
           mode="outlined"

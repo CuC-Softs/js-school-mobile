@@ -9,6 +9,7 @@ import merge from 'deepmerge';
 import theme from './styles/theme';
 import {StatusBar} from 'react-native';
 import 'react-native-gesture-handler';
+import {AuthProvider} from './contexts/AuthContext';
 
 const combinedTheme = merge(NavigationDefaultTheme, theme);
 
@@ -20,11 +21,13 @@ const App = () => {
         backgroundColor="transparent"
         translucent
       />
-      <PaperProvider theme={combinedTheme}>
-        <NavigationContainer theme={combinedTheme}>
-          <Routes />
-        </NavigationContainer>
-      </PaperProvider>
+      <AuthProvider>
+        <PaperProvider theme={combinedTheme}>
+          <NavigationContainer theme={combinedTheme}>
+            <Routes />
+          </NavigationContainer>
+        </PaperProvider>
+      </AuthProvider>
     </>
   );
 };

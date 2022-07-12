@@ -1,6 +1,6 @@
 import {View} from 'react-native';
 import React, {useRef} from 'react';
-import {Button, Text} from 'react-native-paper';
+import {Button, Headline, Text} from 'react-native-paper';
 import {Form} from '@unform/mobile';
 import TextInput from '../../components/form/TextInput';
 import {FormHandles} from '@unform/core';
@@ -17,8 +17,8 @@ const SignIn = () => {
   };
 
   return (
-    <View style={{padding: 25}}>
-      <Text>SignIn</Text>
+    <View style={{padding: 25, marginTop: 20}}>
+      <Headline>Sign In</Headline>
       <Form ref={formRef} style={{marginTop: 20}} onSubmit={handleSubmit}>
         <TextInput
           mode="outlined"

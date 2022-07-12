@@ -6,7 +6,7 @@ const AppRouter = createNativeStackNavigator();
 
 const AppRoutes = () => {
   return (
-    <AppRouter.Navigator>
+    <AppRouter.Navigator screenOptions={{headerShown: false}}>
       <AppRouter.Screen name="App" component={App} />
     </AppRouter.Navigator>
   );

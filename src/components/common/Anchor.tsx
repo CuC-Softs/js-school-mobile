@@ -18,7 +18,7 @@ const Anchor: React.FC<AnchorProps> = ({children, to, ...rest}) => {
   }
   return (
     <Text
-      style={{color: 'blue'}}
+      style={{color: '#3699ff'}}
       onPress={() => {
         navigationHandler(to);
       }}

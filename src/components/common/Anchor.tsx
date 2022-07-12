@@ -1,7 +1,7 @@
 import {useNavigation} from '@react-navigation/core';
 import React from 'react';
 import {TextProps} from 'react-native';
-import {Text} from 'react-native-paper';
+import styled from 'styled-components/native';
 
 export interface AnchorProps extends TextProps {
   to: string;
@@ -13,15 +13,18 @@ const Anchor: React.FC<AnchorProps> = ({children, to, ...rest}) => {
     Navigation.navigate(where as any);
   }
   return (
-    <Text
-      style={{color: '#3699ff'}}
+    <StyledAnchor
       onPress={() => {
         navigationHandler(to);
       }}
       {...rest}>
       {children}
-    </Text>
+    </StyledAnchor>
   );
 };
+
+const StyledAnchor = styled.Text`
+  color: #3699ff;
+`;
 
 export default Anchor;

@@ -3,6 +3,7 @@ import React, {useRef} from 'react';
 import {Button, Headline, Text} from 'react-native-paper';
 import {Form} from '@unform/mobile';
 import TextInput from '../../components/form/TextInput';
+import {TextInput as T} from 'react-native-paper';
 import {FormHandles} from '@unform/core';
 import Anchor from '../../components/common/Anchor';
 import {useAuth} from '../../contexts/AuthContext';
@@ -24,12 +25,14 @@ const SignIn = () => {
           mode="outlined"
           keyboardType="email-address"
           name="email"
+          left={<T.Icon name="mail" />}
           label="Email"
         />
         <TextInput
           mode="outlined"
           name="password"
           label="Senha"
+          left={<T.Icon name="lock" />}
           secureTextEntry={true}
         />
         <Text style={{marginTop: 10}}>

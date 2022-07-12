@@ -9,26 +9,27 @@ import merge from 'deepmerge';
 import theme from './styles/theme';
 import {StatusBar} from 'react-native';
 import 'react-native-gesture-handler';
+import FeatherIcon from 'react-native-vector-icons/Feather';
 import {AuthProvider} from './contexts/AuthContext';
 
 const combinedTheme = merge(NavigationDefaultTheme, theme);
 
 const App = () => {
   return (
-    <>
+    <AuthProvider>
       <StatusBar
         barStyle="light-content"
         backgroundColor="transparent"
         translucent
       />
-      <AuthProvider>
-        <PaperProvider theme={combinedTheme}>
-          <NavigationContainer theme={combinedTheme}>
-            <Routes />
-          </NavigationContainer>
-        </PaperProvider>
-      </AuthProvider>
-    </>
+      <PaperProvider
+        settings={{icon: props => <FeatherIcon {...props} />}}
+        theme={combinedTheme}>
+        <NavigationContainer theme={combinedTheme}>
+          <Routes />
+        </NavigationContainer>
+      </PaperProvider>
+    </AuthProvider>
   );
 };
 

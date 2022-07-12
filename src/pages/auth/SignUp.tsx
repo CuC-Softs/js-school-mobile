@@ -6,6 +6,7 @@ import TextInput from '../../components/form/TextInput';
 import {FormHandles} from '@unform/core';
 import Anchor from '../../components/common/Anchor';
 import {useAuth} from '../../contexts/AuthContext';
+import {TextInput as T} from 'react-native-paper';
 
 const SignUp = () => {
   const formRef = useRef<FormHandles>(null);
@@ -24,11 +25,13 @@ const SignUp = () => {
           mode="outlined"
           name="name"
           label="Nome"
+          left={<T.Icon name="user" />}
           returnKeyType="next"
         />
         <TextInput
           mode="outlined"
           name="email"
+          left={<T.Icon name="mail" />}
           keyboardType="email-address"
           label="Email"
           returnKeyType="next"
@@ -37,6 +40,7 @@ const SignUp = () => {
           mode="outlined"
           name="password"
           label="Senha"
+          left={<T.Icon name="lock" />}
           returnKeyType="send"
           secureTextEntry={true}
         />
@@ -44,6 +48,7 @@ const SignUp = () => {
           mode="outlined"
           name="password_confirmation"
           label="Confirmação de Senha"
+          left={<T.Icon name="lock" />}
           returnKeyType="send"
           secureTextEntry={true}
         />
@@ -57,7 +62,7 @@ const SignUp = () => {
           onPress={() => {
             formRef.current?.submitForm();
           }}>
-          Logar
+          Registrar
         </Button>
       </Form>
     </View>

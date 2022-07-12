@@ -1,10 +1,20 @@
-import {View, Text} from 'react-native';
+import {View} from 'react-native';
 import React from 'react';
+import {Button} from 'react-native-paper';
+import {Text} from 'react-native-paper';
+import {useAuth} from '../contexts/AuthContext';
 
 const App = () => {
+  const {signOut} = useAuth();
   return (
     <View>
       <Text>App</Text>
+      <Button
+        onPress={() => {
+          signOut();
+        }}>
+        Logout
+      </Button>
     </View>
   );
 };
